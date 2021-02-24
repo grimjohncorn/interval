@@ -1,23 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react'
+import Title from './Title'
+import Configure from './Configure'
+import RunningTimer from './RunningTimer'
+import './App.css'
 
 function App() {
+
+  const [time, setTime] = useState(30)
+  const [rest, setRest] = useState(15)
+  const [intervals, setIntervals] = useState(5)
+  const [isRunning, setIsRunning] = useState(false)
+
+  const startHandleClick = () => {
+    setIsRunning(true)
+  }
+
+  const stopHandleClick = () => {
+    setIsRunning(false)
+  }
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Title title="Interval Timer" />
+      {isRunning
+        ? <RunningTimer
+          time={time}
+          rest={rest}
+          intervals={intervals}
+          stopHandleClick={stopHandleClick}>            
+          </RunningTimer>
+        : <Configure 
+          time={time} 
+          rest={rest} 
+          setTime={setTime} 
+          setRest={setRest} 
+          intervals={intervals} 
+          setIntervals={setIntervals}
+          startHandleClick={startHandleClick}>
+        </Configure>}
     </div>
   );
 }
