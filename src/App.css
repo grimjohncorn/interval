@@ -15,10 +15,6 @@ html {
   text-align: center;
 }
 
-.buttons button {
-  padding: 1em;
-}
-
 .adjustContainer {
   display: flex;
   justify-content: space-evenly;
@@ -58,4 +54,30 @@ html {
   background-color: black;
   border-width: 0.125rem;
   padding: 0;
+  box-shadow: 0 0 5px 0.5px grey;
+}
+
+.ovalButton {
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  margin: 0.8rem;
+  font-size: 1.5rem;
+  min-width: 7rem;
+  border-radius: 50px;
+  border-style: solid;
+  color: grey;
+  border-color: grey;
+  background-color: black;
+  border-width: 0.125rem;
+  box-shadow: 0 0 10px 0.5px grey;
+  transition: all .2s ease-in-out
+}
+
+.ovalButton:active {
+  background-image: radial-gradient(aquamarine, black);
+  transition: 0.1s;
+}
+
+.ovalButton:hover {
+  box-shadow: 0 0 10px 0.5px aquamarine;
+  transition: 0.1s;
 }

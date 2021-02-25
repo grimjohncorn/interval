@@ -7,8 +7,8 @@ const Configure = ({ time, rest, setTime, setRest, intervals, setIntervals, star
             <Time time={time} rest={rest} setTime={setTime} setRest={setRest} />
             <Interval intervals={intervals} setIntervals={setIntervals} />
             <div className='buttons'>
-                <button onClick={startHandleClick}>Start</button>
-                <button>Reset</button>
+                <button className='ovalButton'>Reset</button>
+                <button className='ovalButton' onClick={startHandleClick}>Start</button>
             </div>
         </div>
       )

@@ -58,8 +58,8 @@ const RunningTimer = ({ time, rest, intervals, stopHandleClick }) => {
             <h2 className='centreHeading'>{currentTime}</h2>
             <h3 className='centreHeading'>{`${currentInterval} of ${intervals}`}</h3>
             <div className='buttons'>
-                <button onClick={pauseHandleClick}>{isCounting ? 'Pause' : 'Resume'}</button>
-                <button onClick={stopHandleClick}>Stop</button>
+                <button className='ovalButton' onClick={pauseHandleClick}>{isCounting ? 'Pause' : 'Resume'}</button>
+                <button className='ovalButton' onClick={stopHandleClick}>Stop</button>
             </div>
         </div>
       );
