@@ -50,12 +50,13 @@ const RunningTimer = ({ time, rest, intervals, stopHandleClick }) => {
         )
     }, [isCounting])
 
-    
+    const timerStyle = isCounting ? 
+        isRest ? {animationName: 'circleAnimationRed'} : {animationName: 'circleAnimationGreen'} : {}
 
     return (
         <div className='runningContainer'>
             <h3 className='centreHeading'>{isRest ? 'rest' : 'exercise'}</h3>
-            <div className='timerText'><h3>{currentTime}</h3></div>
+            <div className='timerText' style={timerStyle}><h3>{currentTime > 0 ? currentTime : 0}</h3></div>
             <h3 className='centreHeading'>{`${currentInterval} of ${intervals}`}</h3>
             <div className='buttons'>
                 <button className='ovalButton' onClick={pauseHandleClick}>{isCounting ? 'Pause' : 'Resume'}</button>

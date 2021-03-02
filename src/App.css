@@ -54,11 +54,12 @@ html {
   justify-content: center;
   align-items: center;
   font-size: 4rem;
-  border: 4px solid red;
+  box-shadow: 0 0 5px 0.5px grey;
   border-radius: 50%;
   width: 8rem;
   height: 8rem;
-  /*line-height: 0; */
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
 }
 
 .timerText h3 {
@@ -104,4 +105,15 @@ html {
 .ovalButton:hover {
   box-shadow: 0 0 10px 0.5px aquamarine;
   transition: 0.1s;
+}
+
+
+@keyframes circleAnimationRed {
+  from {box-shadow: 0 0 20px 2px lightcoral}
+  to {box-shadow: 0 0 5px 0.5px red}
+}
+
+@keyframes circleAnimationGreen {
+  from {box-shadow: 0 0 20px 2px lightgreen}
+  to {box-shadow: 0 0 5px 0.5px green}
 }
