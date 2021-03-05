@@ -32,6 +32,12 @@ html {
   margin: 0 1rem 0 1rem;
 }
 
+.runningContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .adjustTime {
   display: flex;
   justify-content: center;
@@ -41,6 +47,25 @@ html {
 .centreHeading {
   width: 100%;
   text-align: center;
+}
+
+.timerText {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 4rem;
+  box-shadow: 0 0 5px 0.5px grey;
+  border-radius: 50%;
+  width: 8rem;
+  height: 8rem;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+
+.timerText h3 {
+  font-size: 1em;
+  padding: 0;
+  margin: 0;
 }
 
 .roundButton {
@@ -80,4 +105,15 @@ html {
 .ovalButton:hover {
   box-shadow: 0 0 10px 0.5px aquamarine;
   transition: 0.1s;
+}
+
+
+@keyframes circleAnimationRed {
+  from {box-shadow: 0 0 20px 2px lightcoral}
+  to {box-shadow: 0 0 5px 0.5px red}
+}
+
+@keyframes circleAnimationGreen {
+  from {box-shadow: 0 0 20px 2px lightgreen}
+  to {box-shadow: 0 0 5px 0.5px green}
 }
