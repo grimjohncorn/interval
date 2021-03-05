@@ -1,3 +1,6 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons'
+
 const Change = ( {time, unit, setValue} ) => {
 
     const displayValue = unit === 'minutes' ? Math.floor(time / 60) : time % 60
@@ -19,9 +22,17 @@ const Change = ( {time, unit, setValue} ) => {
 
     return (
         <div>
-            <button className='roundButton' onClick={() => changeTime('increase', unit)}>+</button>
+            <button 
+              className='roundButton' 
+              onClick={() => changeTime('increase', unit)}>
+                <FontAwesomeIcon icon={faPlus} />
+            </button>
             <h2>{unit === 'seconds' && displayValue < 10 ? `0${displayValue}` : displayValue}</h2>
-            <button className='roundButton' onClick={() => changeTime('decrease', unit)}>-</button>
+            <button 
+              className='roundButton' 
+              onClick={() => changeTime('decrease', unit)}>
+                <FontAwesomeIcon icon={faMinus} />
+              </button>
         </div>
     )
 }
