@@ -24,19 +24,19 @@ function App() {
       <Title title="Interval Timer" />
       {isRunning
         ? <RunningTimer
-          time={time}
-          rest={rest}
-          intervals={intervals}
-          stopHandleClick={stopHandleClick}>            
+            time={time}
+            rest={rest}
+            intervals={intervals}
+            stopHandleClick={stopHandleClick}>            
           </RunningTimer>
         : <Configure 
-          time={time} 
-          rest={rest} 
-          setTime={setTime} 
-          setRest={setRest} 
-          intervals={intervals} 
-          setIntervals={setIntervals}
-          startHandleClick={startHandleClick}>
+            time={time} 
+            rest={rest} 
+            setTime={setTime} 
+            setRest={setRest} 
+            intervals={intervals} 
+            setIntervals={setIntervals}
+            startHandleClick={startHandleClick}>
         </Configure>}
     </div>
   );
