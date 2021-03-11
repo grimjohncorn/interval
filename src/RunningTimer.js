@@ -8,6 +8,7 @@ const RunningTimer = ({ time, rest, intervals, stopHandleClick }) => {
     const [currentTime, setCurrentTime] = useState(time)
     const [isCounting, setIsCounting] = useState(true)
     const [isRest, setIsRest] = useState(false)
+    const [isFinished, setIsFinished] = useState(false)
 
     const playInterval = useRef(new Audio(sndInterval))
     const playFinish = useRef(new Audio(sndFinish))
@@ -19,10 +20,11 @@ const RunningTimer = ({ time, rest, intervals, stopHandleClick }) => {
     
     useEffect(() => {
 
-        if(currentTime === 0 && currentInterval === intervals && isRest) {
+        if(currentTime === 0 && currentInterval === intervals) {
             //Finished, stop timer
             setIsCounting(counting => !counting)
             playFinish.current.play()
+            setIsFinished(true)
         }
 
         if(currentTime < 0) {
@@ -58,12 +60,19 @@ const RunningTimer = ({ time, rest, intervals, stopHandleClick }) => {
             <h3 className='centreHeading'>{isRest ? 'rest' : 'exercise'}</h3>
             <div className='timerText' style={timerStyle}><h3>{currentTime > 0 ? currentTime : 0}</h3></div>
             <h3 className='centreHeading'>{`${currentInterval} of ${intervals}`}</h3>
-            <div className='buttons'>
-                <button className='ovalButton' onClick={pauseHandleClick}>{isCounting ? 'Pause' : 'Resume'}</button>
-                <button className='ovalButton' onClick={stopHandleClick}>Stop</button>
-            </div>
+            {!isFinished ?
+                <div className='buttons'>
+                    <button className='ovalButton' onClick={pauseHandleClick}>{isCounting ? 'Pause' : 'Resume'}</button>
+                    <button className='ovalButton' onClick={stopHandleClick}>Stop</button>
+                </div>
+                :
+                <div className='buttons'>
+                    <button className='ovalButton' onClick={stopHandleClick}>Back</button>
+                </div>
+            }   
+            
         </div>
-      );
+      )
 }
  
 export default RunningTimer

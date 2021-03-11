@@ -1,7 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons'
 
-
 const Change = ( {time, unit, setValue} ) => {
 
     const displayValue = unit === 'minutes' ? Math.floor(time / 60) : time % 60
