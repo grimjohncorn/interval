@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Title from './Title'
 import Configure from './Configure'
 import RunningTimer from './RunningTimer'
@@ -6,12 +6,22 @@ import './App.css'
 
 function App() {
 
-  const [time, setTime] = useState(30)
-  const [rest, setRest] = useState(15)
+  const [time, setTime] = useState(localStorage.getItem('Interval-time') || 30)
+  const [rest, setRest] = useState(localStorage.getItem('Interval-rest') || 15)
   const [intervals, setIntervals] = useState(5)
   const [isRunning, setIsRunning] = useState(false)
+  const [storeValues, setStoreValues] = useState(null)
+
+  useEffect(() => {
+    //Persist times in localStorage
+    if(storeValues !== null) {
+      localStorage.setItem('Interval-time', storeValues.time)
+      localStorage.setItem('Interval-rest', storeValues.rest)
+    }
+  },[storeValues])
 
   const startHandleClick = () => {
+    setStoreValues({time, rest})
     setIsRunning(true)
   }
 
