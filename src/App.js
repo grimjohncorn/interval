@@ -6,9 +6,13 @@ import './App.css'
 
 function App() {
 
-  const [time, setTime] = useState(localStorage.getItem('Interval-time') || 30)
-  const [rest, setRest] = useState(localStorage.getItem('Interval-rest') || 15)
-  const [intervals, setIntervals] = useState(5)
+  const DEFAULT_TIME = 30
+  const DEFAULT_REST = 15
+  const DEFAULT_INTERVALS = 5
+
+  const [time, setTime] = useState(localStorage.getItem('Interval-time') || DEFAULT_TIME)
+  const [rest, setRest] = useState(localStorage.getItem('Interval-rest') || DEFAULT_REST)
+  const [intervals, setIntervals] = useState(localStorage.getItem('Interval-number') || DEFAULT_INTERVALS)
   const [isRunning, setIsRunning] = useState(false)
   const [storeValues, setStoreValues] = useState(null)
 
@@ -17,16 +21,23 @@ function App() {
     if(storeValues !== null) {
       localStorage.setItem('Interval-time', storeValues.time)
       localStorage.setItem('Interval-rest', storeValues.rest)
+      localStorage.setItem('Interval-number', storeValues.intervals)
     }
   },[storeValues])
 
   const startHandleClick = () => {
-    setStoreValues({time, rest})
+    setStoreValues({time, rest, intervals})
     setIsRunning(true)
   }
 
   const stopHandleClick = () => {
     setIsRunning(false)
+  }
+
+  const resetHandleClick = () => {
+    setTime(DEFAULT_TIME)
+    setRest(DEFAULT_REST)
+    setIntervals(DEFAULT_INTERVALS)
   }
   
   return (
@@ -46,7 +57,8 @@ function App() {
             setRest={setRest} 
             intervals={intervals} 
             setIntervals={setIntervals}
-            startHandleClick={startHandleClick}>
+            startHandleClick={startHandleClick}
+            resetHandleClick={resetHandleClick}>
         </Configure>}
     </div>
   );
