@@ -10,7 +10,7 @@ const Title = ({ title }) => {
     
     return (
         <div className='title'>
-            <h1>{formattedWords.map(item => item)}</h1>
+            <h1>{formattedWords.map((item, index) => <span key={index}>{item}</span>)}</h1>
         </div>
       )
 }
