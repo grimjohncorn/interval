@@ -20,9 +20,11 @@ const RunningTimer = ({ time, rest, intervals, stopHandleClick }) => {
     
     useEffect(() => {
 
-        if(currentTime === 0 && currentInterval === intervals) {
+        console.log(currentInterval, intervals, currentTime)
+
+        if(currentTime <= 0 && currentInterval === intervals) {
             //Finished, stop timer
-            setIsCounting(counting => !counting)
+            setIsCounting(false)
             playFinish.current.play()
             setIsFinished(true)
         }
