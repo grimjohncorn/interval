@@ -10,9 +10,9 @@ function App() {
   const DEFAULT_REST = 15
   const DEFAULT_INTERVALS = 5
 
-  const [time, setTime] = useState(localStorage.getItem('Interval-time') || DEFAULT_TIME)
-  const [rest, setRest] = useState(localStorage.getItem('Interval-rest') || DEFAULT_REST)
-  const [intervals, setIntervals] = useState(localStorage.getItem('Interval-number') || DEFAULT_INTERVALS)
+  const [time, setTime] = useState(parseInt(localStorage.getItem('Interval-time')) || DEFAULT_TIME)
+  const [rest, setRest] = useState(parseInt(localStorage.getItem('Interval-rest')) || DEFAULT_REST)
+  const [intervals, setIntervals] = useState(parseInt(localStorage.getItem('Interval-number')) || DEFAULT_INTERVALS)
   const [isRunning, setIsRunning] = useState(false)
   const [storeValues, setStoreValues] = useState(null)
 

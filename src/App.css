@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
+
 html {
   color: grey;
   background-color: black;
@@ -6,7 +8,15 @@ html {
 
 .title {
   width: 100%;
+  font-family: 'Caveat', cursive;
+  font-size: 1.5rem;
   text-align: center;
+}
+
+
+.firstLetter {
+  color: aquamarine;
+  border-bottom: 4px solid aquamarine;
 }
 
 .buttons {
